@@ -11,8 +11,21 @@
     "deploy": "sh build.sh"
   },
   "devDependencies": {
-    "vuepress": "1.8.0",
-    "vuepress-theme-reco": "^1.6.6",
-    "markdown-it-katex": "^2.0.3"
+    "dayjs": "^1.9.7",
+    "inquirer": "^7.1.0",
+    "json2yaml": "^1.1.0",
+    "vuepress": "^1.8.0",
+    "markdown-it-katex": "^2.0.3",
+    "vuepress-plugin-baidu-autopush": "^1.0.1",
+    "vuepress-plugin-baidu-tongji": "^1.0.1",
+    "vuepress-plugin-demo-block": "^0.7.2",
+    "vuepress-plugin-one-click-copy": "^1.0.2",
+    "vuepress-plugin-thirdparty-search": "^1.0.2",
+    "vuepress-plugin-zooming": "^1.1.7",
+    "vuepress-theme-vdoing": "^1.8.1",
+    "yamljs": "^0.3.0"
+  },
+  "dependencies": {
+    "vuepress-plugin-comment": "^0.7.3"
   }
 }
