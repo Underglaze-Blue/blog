@@ -15,7 +15,6 @@ const themeConfig = require('./config/themeConfig.js');
 
 module.exports = {
   base: '/blog/',
-  // theme: 'reco',
   theme: require.resolve('../../theme-vdoing'),
   dest: 'dist',
   title: 'Blog',

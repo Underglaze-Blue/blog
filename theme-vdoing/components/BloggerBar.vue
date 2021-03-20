@@ -2,7 +2,7 @@
   <aside class="blogger-wrapper card-box">
     <div class="avatar">
       <img
-        :src="blogger.avatar"
+        :src="$withBase(blogger.avatar)"
         alt="头像"
         title="我好看吗"
       />
@@ -31,6 +31,9 @@
 <script>
 export default {
   computed: {
+    base () {
+      return this
+    },
     blogger () {
       return this.$themeConfig.blogger
     },
