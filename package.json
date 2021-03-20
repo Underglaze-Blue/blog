@@ -1,0 +1,19 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "个人博客",
+  "main": "index.js",
+  "author": "Himawari",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "deploy": "sh build.sh"
+  },
+  "devDependencies": {
+    "vuepress": "^1.8.2",
+    "vuepress-theme-reco": "^1.6.6",
+    "@vuepress/plugin-medium-zoom": "^1.8.0",
+    "markdown-it-katex": "^2.0.3"
+  }
+}
