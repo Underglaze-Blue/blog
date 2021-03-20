@@ -1,14 +1,14 @@
-const fs = require('fs');
-const path = require('path');
-const js_filePath = path.resolve('./docs/js/');
-
-function handleChildren(basePath, arr){
-  return arr.map(item => {
-    return `/${basePath}/${item}`
-  })
-}
-
-const internal_path = fs.readdirSync(js_filePath).filter(item => item !== 'README.md')
+// const fs = require('fs');
+// const path = require('path');
+// const js_filePath = path.resolve('./docs/js/');
+//
+// function handleChildren(basePath, arr){
+//   return arr.map(item => {
+//     return `/${basePath}/${item}`
+//   })
+// }
+//
+// const internal_path = fs.readdirSync(js_filePath).filter(item => item !== 'README.md')
 
 
 module.exports = {
@@ -40,6 +40,7 @@ module.exports = {
   themeConfig: {
     author: 'Himawari',
     authorAvatar: '/avatar.png',
+    noFoundPageByTencent: false,
     type: "blog",
     blogConfig: {
       category: {
@@ -68,17 +69,5 @@ module.exports = {
         link: 'https://underglaze-blue.github.io/lodash-analysis/'
       }
     ]
-  },
-  // plugins: ["@vuepress/medium-zoom"]
-  plugins: {
-    '@vuepress/medium-zoom': {
-      selector: '.content__default img',
-      // medium-zoom options here
-      // See: https://github.com/francoischalifour/medium-zoom#options
-      options: {
-        margin: 16,
-        background: '#000'
-      }
-    }
   }
 }
