@@ -1176,12 +1176,6 @@
   dependencies:
     medium-zoom "^1.0.4"
 
-"@vuepress/plugin-medium-zoom@^1.8.0":
-  version "1.8.2"
-  resolved "https://registry.npm.taobao.org/@vuepress/plugin-medium-zoom/download/@vuepress/plugin-medium-zoom-1.8.2.tgz#0243dd27edf0c710f9a41a234d253d76ab51e625"
-  dependencies:
-    medium-zoom "^1.0.4"
-
 "@vuepress/plugin-nprogress@1.8.2":
   version "1.8.2"
   resolved "https://registry.npm.taobao.org/@vuepress/plugin-nprogress/download/@vuepress/plugin-nprogress-1.8.2.tgz?cache=0&sync_timestamp=1615702850408&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40vuepress%2Fplugin-nprogress%2Fdownload%2F%40vuepress%2Fplugin-nprogress-1.8.2.tgz#dc6c082925420c8c59ecb7fc2d4a9401f6d4664a"
@@ -7305,9 +7299,9 @@ vuepress-theme-reco@^1.6.6:
     vue-demi "^0.5.3"
     vuepress-plugin-smooth-scroll "^0.0.9"
 
-vuepress@^1.8.2:
+vuepress@^1.8.0:
   version "1.8.2"
-  resolved "https://registry.npm.taobao.org/vuepress/download/vuepress-1.8.2.tgz?cache=0&sync_timestamp=1615991663311&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvuepress%2Fdownload%2Fvuepress-1.8.2.tgz#97e8bf979630611fc7b621fc4cc35b798ee5e847"
+  resolved "https://registry.npm.taobao.org/vuepress/download/vuepress-1.8.2.tgz#97e8bf979630611fc7b621fc4cc35b798ee5e847"
   dependencies:
     "@vuepress/core" "1.8.2"
     "@vuepress/theme-default" "1.8.2"
