@@ -3,8 +3,7 @@
     <div class="avatar">
       <img
         :src="$withBase(blogger.avatar)"
-        alt="头像"
-        title="我好看吗"
+        alt="avatar"
       />
     </div>
     <div

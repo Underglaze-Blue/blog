@@ -4,7 +4,7 @@
       class="blogger"
       v-if="blogger"
     >
-      <img :src="blogger.avatar" />
+      <img :src="$withBase(blogger.avatar)" />
       <div class="blogger-info">
         <h3>{{blogger.name}}</h3>
 
