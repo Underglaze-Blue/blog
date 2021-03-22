@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "deploy": "sh build.sh"
+    "deploy": "sh build.sh",
+    "actions": "sh actions.sh"
   },
   "devDependencies": {
     "dayjs": "^1.9.7",
