@@ -1,0 +1,72 @@
+---
+title: 部署 Github 静态页面
+date: 2021-03-22 17:19:38
+permalink: /pages/1a2ed9/
+categories:
+  - git
+tags:
+  - gh-pages
+---
+# 部署 Github 静态页面 
+
+Github 提供了 GitHub Pages， 您可以为自己、您的组织或项目设置一个基本 GitHub Pages 站点
+
+针对于 Vuepress ， 我们也可以使用 GitHub Pages 来部署静态站点，达到在线访问的效果
+
+关于 GitHub Pages 可查看[官方文档](https://docs.github.com/cn/github/working-with-github-pages/creating-a-github-pages-site)
+
+## Vuepress
+
+我们来看一下在 Vuepress 中，怎么将自己写的文档，发布到线上访问
+
+1. 在 `docs/.vuepress/config.js` 中设置正确的 `base`。
+   
+   如果你打算发布到 `https://<USERNAME>.github.io/`，则可以省略这一步，因为 `base` 默认即是 "/"。
+
+   如果你打算发布到 `https://<USERNAME>.github.io/<REPO>/`，则将 `base` 设置为 `/<REPO>/`。
+
+2. 在你的项目中，创建一个如下的 `deploy.sh` 文件
+```shell
+#!/usr/bin/env sh
+
+# 确保脚本抛出遇到的错误
+set -e
+
+# 生成静态文件
+npm run docs:build
+
+# 进入生成的文件夹
+cd docs/.vuepress/dist
+
+# 如果是发布到自定义域名
+# echo 'www.example.com' > CNAME
+
+git init
+git add -A
+git commit -m 'deploy'
+
+# 如果发布到 https://<USERNAME>.github.io
+# git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
+
+# 如果发布到 https://<USERNAME>.github.io/<REPO>
+git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
+
+cd -
+```
+
+3. 在 `package.json` 中添加 `deploy` 命令
+```json
+  "scripts": {
+    "deploy": "sh deploy.sh",
+  }
+```
+
+4. 在本地执行 `deploy` 命令即可发布到的 `GitHub Pages`
+
+
+此时，打开项目的 Github，会发现多了分支
+
+<img  :src="$withBase('/assets/gh-pages.png')" />
+
+
+通过 `https://<USERNAME>.github.io/<REPO>/` 即可进行访问
