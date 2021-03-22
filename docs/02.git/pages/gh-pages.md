@@ -5,6 +5,7 @@ permalink: /pages/1a2ed9/
 categories:
   - git
 tags:
+  - git
   - gh-pages
 ---
 # 部署 Github 静态页面 
