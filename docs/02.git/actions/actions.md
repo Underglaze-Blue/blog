@@ -1,0 +1,94 @@
+---
+title: 使用 GitHub Actions 自动部署博客
+date: 2021-03-22 17:17:39
+permalink: /pages/378e42/
+categories:
+  - git
+tags:
+  - git
+  - actions
+---
+# 使用 GitHub Actions 自动部署博客 
+
+在手动部署 `gh-pages` 的基础上，我们可以通过 `GitHub Actions` 来实现自动部署，也就是不需要通过手动在本地执行命令，只需要提交代码，然后 `GitHub Actions` 自动执行部署即可
+
+## 设置 Secrets
+
+后面部署的 Action 需要有操作你的仓库的权限，因此提前设置好 GitHub personal access（个人访问令牌）
+
+生成方式可以参考 Github 官方文档 [创建个人访问令牌](https://docs.github.com/cn/github/authenticating-to-github/creating-a-personal-access-token)
+
+权限给 `repo` 即可 （要使用令牌从命令行访问仓库，请选择 repo（仓库））
+
+<img  :src="$withBase('/assets/actions-repo.png')" />
+
+然后在 **项目的 setting** 中进行 Secrets 的设置
+
+<img  :src="$withBase('/assets/secrets.png')" />
+
+令牌的名称可以按照自己喜好起，要和后续的 `.yml` 文件中一致，建议使用 `ACCESS_TOKEN`
+
+## workflow 文件
+
+GitHub Actions 的配置文件叫做 `workflow` 文件，存放在代码仓库的.github/workflows 目录
+
+创建 `.github/workflows/xxx.yml` 文件 ， `xxx` 为自定义名称，一个库可以有多个 `.yml` 文件， `.yml` 文件采用 [YAML](https://www.ruanyifeng.com/blog/2016/07/yaml.html) 格式, 也可以参考官方文档 [GitHub 操作的工作流程语法
+](https://docs.github.com/cn/actions/reference/workflow-syntax-for-github-actions) ， 或者 [阮一峰老师 GitHub Actions 入门教程](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
+
+```yaml
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run.
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches:
+      - main
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Deploy
+        env: # 设置环境变量
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量 和 生成 Secrets 令牌的名称一致
+        run: npm install && npm run actions # 执行的命令
+```
+
+这里的工作步骤主要为
+1. 拉取代码
+2. 把 `token` 设置到环境变量，安装项目依赖，并运行 `actions` 命令
+
+这里我个人的 `actions.sh` 文件如下
+
+```shell
+#!/usr/bin/env sh
+# 确保脚本抛出遇到的错误
+set -e
+npm run build # 生成静态文件
+cd dist # 进入生成的文件夹
+
+# deploy to github
+githubUrl=https://Underglaze-Blue:${GITHUB_TOKEN}@github.com/Underglaze-Blue/blog.git
+git config --global user.name "Underglaze-Blue"
+git config --global user.email "lepapillonangel@gmail.com"
+git init
+git add -A
+git commit -m "deploy"
+git push -f $githubUrl master:gh-pages # 推送到github
+
+cd -
+rm -rf dist
+```
+
+至此，就完成了，可以 `push` 代码之后，在 项目的 `actions` 模块下 查看是否运行成功
+
+<img  :src="$withBase('/assets/actions.png')" />
