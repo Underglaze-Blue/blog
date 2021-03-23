@@ -19,4 +19,8 @@ module.exports = [
       { text: '归档', link: '/archives/' },
     ],
   },
+  {
+    text: 'Mozilla',
+    link: 'https://developer.mozilla.org/zh-CN/'
+  }
 ]
