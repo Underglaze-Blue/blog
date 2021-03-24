@@ -1,12 +1,11 @@
 ---
 title: 部署 Github 静态页面
 date: 2021-03-22 17:19:38
-permalink: /pages/1a2ed9/
+permalink: /pages/843da4/
 categories:
   - git
 tags:
   - git
-  - gh-pages
 ---
 # 部署 Github 静态页面 
 
