@@ -268,6 +268,9 @@ export default {
       }
     })
 
+    document.title = this.homeData.title || document.title
+
+
   },
   beforeDestroy () {
     clearTimeout(this.playTimer)
@@ -287,6 +290,9 @@ export default {
           this.init()
         }, 0)
       }
+    },
+    homeData (newValue) {
+      document.title = newValue.title || document.title
     }
   },
   methods: {
