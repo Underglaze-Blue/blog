@@ -20,6 +20,12 @@ module.exports = [
     ],
   },
   {
+    text: 'Link',
+    items: [
+      { text: 'Lodash  源码分析', link: 'https://underglaze-blue.github.io/lodash-analysis/'}
+    ]
+  },
+  {
     text: 'Mozilla',
     link: 'https://developer.mozilla.org/zh-CN/'
   }

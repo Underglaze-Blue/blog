@@ -29,7 +29,8 @@ export default {
         if (++count >= bodyBgImg.length) {
           count = 0
         }
-        this.bgImg = bodyBgImg[count]
+        const reg = /^(((https|http)?:\/\/)|(\/\/))[^\s]+/
+        this.bgImg = reg.test(bodyBgImg[count]) ? bodyBgImg[count] : $withBase(bodyBgImg[count])
       }, 15000);
     }
 

@@ -226,7 +226,9 @@ export default {
       } else if (bannerBg.indexOf('background') > -1) { // 自定义背景样式
         return bannerBg
       } else if (bannerBg.indexOf('.') > -1) { // 大图
-        return `background: url(${this.$withBase(bannerBg)}) center center / cover no-repeat`
+        return {
+          background: `url(${this.$withBase(bannerBg)}) center center / cover no-repeat`
+        }
       }
 
     },
