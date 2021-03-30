@@ -1,7 +1,7 @@
 <template>
   <div
     class="body-bg"
-    :style="`background: url(${bgImg}) center center / cover no-repeat;opacity:${opacity}`"
+    :style="`background: url(${bgImg}) rgba(0,0,0,0.4) center center / cover no-repeat;opacity:${opacity}`"
   ></div>
 </template>
 
@@ -30,7 +30,7 @@ export default {
           count = 0
         }
         const reg = /^(((https|http)?:\/\/)|(\/\/))[^\s]+/
-        this.bgImg = reg.test(bodyBgImg[count]) ? bodyBgImg[count] : $withBase(bodyBgImg[count])
+        this.bgImg = reg.test(bodyBgImg[count]) ? bodyBgImg[count] : this.$withBase(bodyBgImg[count])
       }, 15000);
     }
 
@@ -51,4 +51,6 @@ export default {
   height 100vh
   width 100vw
   transition background 0.5s
+  background-blend-mode multiply
+  filter blur(4px)
 </style>
