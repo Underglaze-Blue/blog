@@ -45,7 +45,7 @@ function f(...parentArgs) {
     return temp
   }
   Object.defineProperty(temp, 'value', {
-    get: () => result.reduce((res, item) => (res+=item*item, res), 0)
+    get: () => result.reduce((res, item) => (res += item ** 2 || 0 , res), 0)
   })
   return temp
 }
