@@ -26,15 +26,32 @@ function f(a) {
   function temp (b) {
     b = +b || 0
     value += b * b
-    temp.value = value
     return temp
   }
-  temp.value = value
+  Object.defineProperty(temp, 'value', {
+    get: () => value
+  })
   return temp
 }
 ```
 
-充分利用了闭包的概念，和它类似的还有实现斐波那契数列
+这里实现，每次是先计算结果，然后返回函数，下面的方法是先保留数据，然后后计算结果，相比较而言下面的方式更合理，下面的方式 支持多个参数
+
+```js
+function f(...parentArgs) {
+  const result = [...parentArgs]
+  function temp (...args) {
+    result.push(...args)
+    return temp
+  }
+  Object.defineProperty(temp, 'value', {
+    get: () => result.reduce((res, item) => (res+=item*item, res), 0)
+  })
+  return temp
+}
+```
+
+充分利用了闭包还有 `getter` 的概念，和它类似的还有实现斐波那契数列
 
 ```js
 function fib() {
