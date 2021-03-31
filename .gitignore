@@ -3,4 +3,4 @@ node_modules
 dist
 example/
 .DS_Store
-.test.js
+test.js
