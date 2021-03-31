@@ -50,7 +50,7 @@ export default {
   z-index -999999
   height 100vh
   width 100vw
-  transition background 0.5s
+  transition background 1s
   background-blend-mode multiply
   filter blur(4px)
 </style>
