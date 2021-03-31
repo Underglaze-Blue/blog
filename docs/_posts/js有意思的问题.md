@@ -19,6 +19,7 @@ f(1)(2)(3) == 14
 ```
 :::
 
+一开始想到的是这样
 ```js
 function f(a) {
   a = +a || 0
@@ -26,16 +27,28 @@ function f(a) {
   function temp (b) {
     b = +b || 0
     value += b * b
+    temp.value = value
     return temp
   }
-  Object.defineProperty(temp, 'value', {
-    get: () => value
-  })
+  temp.value = value
   return temp
 }
 ```
 
-这里实现，每次是先计算结果，然后返回函数，下面的方法是先保留数据，然后后计算结果，相比较而言下面的方式更合理，下面的方式 支持多个参数
+优化一下是这样
+```js
+function f(a) {
+  let value = 0
+  function temp (b) {
+    value += b ** 2 || 0
+    temp.value = value
+    return temp
+  }
+  return temp(a)
+}
+```
+
+这里实现，每次是先计算结果，然后返回函数，下面的方法是先保留数据，然后后计算结果，相比较而言下面的方式更合理，可以支持多个参数
 
 ```js
 function f(...parentArgs) {
