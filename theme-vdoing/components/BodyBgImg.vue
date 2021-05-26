@@ -1,12 +1,13 @@
 <template>
   <div
     class="body-bg"
-    :style="`background: url(${bgImg}) rgba(0,0,0,0.4) center center / cover no-repeat;opacity:${opacity}`"
+    :style="`background: url(${bgImg}) rgba(0,0,0,0.2) center center / cover no-repeat;opacity:${opacity}`"
   ></div>
 </template>
 
 <script>
 import { type } from '../util'
+import dayjs from 'dayjs'
 export default {
   data () {
     return {
@@ -15,7 +16,16 @@ export default {
     }
   },
   mounted () {
-    let { bodyBgImg, bodyBgImgOpacity } = this.$themeConfig
+    let { bodyBgImg, bodyBgImgOpacity, bing } = this.$themeConfig
+
+    let i = 1
+    const now = dayjs()
+
+    while (bodyBgImg.length < 10) {
+      const temp = now.subtract(i, "day").format('YYYY/MM/DD')
+      i++
+      bodyBgImg.push(`${bing.url}${temp}/${bing.size}.jpg`)
+    }
 
     if (type(bodyBgImg) === 'string') {
       this.bgImg = bodyBgImg
@@ -52,5 +62,5 @@ export default {
   width 100vw
   transition background 1s
   background-blend-mode multiply
-  filter blur(4px)
+  filter blur(0px)
 </style>

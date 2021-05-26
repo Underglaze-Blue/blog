@@ -21,22 +21,15 @@ module.exports = {
   // tag: false, // 是否打开标签功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含标签字段 2.页面中显示与标签相关的信息和模块 3.自动生成标签页面（在@pages文件夹）。如关闭，则反之。
   // archive: false, // 是否打开归档功能，默认true。 如打开，会做的事情有：1.自动生成归档页面（在@pages文件夹）。如关闭，则反之。
   // categoryText: '随笔', // 碎片化文章（_posts文件夹的文章）预设生成的分类值，默认'随笔'
-
+  bing: {
+    url: 'https://bing.creepersan.com/bing-image/',
+    size: '1920x1200'
+  },
   bodyBgImg: [
-    '/bg/bg0.jpg',
-    '/bg/bg1.jpg',
-    '/bg/bg2.jpg',
-    '/bg/bg3.jpg',
-    '/bg/bg4.jpg',
-    '/bg/bg5.jpg',
-    '/bg/bg6.jpg',
-    '/bg/bg7.jpg',
-    '/bg/bg8.jpg',
-    '/bg/bg9.jpg',
-    '/bg/bg10.jpg',
-    '/bg/bg11.jpg',
+    'https://bing.creepersan.com/api/v1/img-current'
+    // 'https://bing.creepersan.com/bing-image/2021/02/19/1920x1200.jpg'
   ], // body背景大图，默认无。 单张图片 String || 多张图片 Array, 多张图片时每隔15秒换一张。
-  bodyBgImgOpacity: 1, // body背景图透明度，选值 0 ~ 1.0, 默认0.5
+  bodyBgImgOpacity: 0.8, // body背景图透明度，选值 0 ~ 1.0, 默认0.5
 
   // titleBadge: false, // 文章标题前的图标是否显示，默认true
   // titleBadgeIcons: [ // 文章标题前图标的地址，默认主题内置图标
@@ -69,7 +62,13 @@ module.exports = {
   social: {
     // 社交图标，显示于博主信息栏和页脚栏
     // iconfontCssFile: '//at.alicdn.com/t/font_1678482_u4nrnp8xp6g.css', // 可选，阿里图标库在线css文件地址，对于主题没有的图标可自由添加
+    iconfontCssFile: '//at.alicdn.com/t/font_1161697_dz24sno74v8.css', // 可选，阿里图标库在线css文件地址，对于主题没有的图标可自由添加
     icons: [
+      {
+        iconClass: 'icon-link',
+        title: '链接',
+        link: 'https://xiaokui.xin',
+      },
       {
         iconClass: 'icon-github',
         title: 'GitHub',
