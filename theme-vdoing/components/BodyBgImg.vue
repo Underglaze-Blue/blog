@@ -1,7 +1,7 @@
 <template>
   <div
     class="body-bg"
-    :style="`background: url(${bgImg}) rgba(0,0,0,0.2) center center / cover no-repeat;opacity:${opacity}`"
+    :style="`background: url(${bgImg}) rgba(0,0,0,0.1) center center / cover no-repeat;opacity:${opacity}`"
   ></div>
 </template>
 
@@ -26,6 +26,8 @@ export default {
       i++
       bodyBgImg.push(`${bing.url}${temp}/${bing.size}.jpg`)
     }
+
+    bodyBgImg.push('/bg/xiangrikui.jpg') // 添加向日葵图
 
     if (type(bodyBgImg) === 'string') {
       this.bgImg = bodyBgImg

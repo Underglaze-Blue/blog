@@ -23,7 +23,7 @@ module.exports = {
   // categoryText: '随笔', // 碎片化文章（_posts文件夹的文章）预设生成的分类值，默认'随笔'
   bing: {
     url: 'https://bing.creepersan.com/bing-image/',
-    size: '1920x1200'
+    size: '1920x1080'
   },
   bodyBgImg: [
     'https://bing.creepersan.com/api/v1/img-current'
