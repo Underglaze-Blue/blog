@@ -72,6 +72,8 @@ function dataURIToBlob(dataURI) {
 
   return new Blob([arr]);
 }
+
+// ...
 var url = canvas.toDataURL("image/png"); //base64数据
 var downloadUrl = URL.createObjectURL(dataURIToBlob(url))
 var download = $('<a></a>')
@@ -80,8 +82,6 @@ var download = $('<a></a>')
     "download",
     'test.png'
   );
-// ...
-
 // ...
 ```
 
