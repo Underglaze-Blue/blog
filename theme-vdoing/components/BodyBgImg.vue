@@ -43,7 +43,7 @@ export default {
         }
         const reg = /^(((https|http)?:\/\/)|(\/\/))[^\s]+/
         this.bgImg = reg.test(bodyBgImg[count]) ? bodyBgImg[count] : this.$withBase(bodyBgImg[count])
-      }, 30 * 60 * 1000);
+      }, 10 * 60 * 1000);
     }
 
     if (bodyBgImgOpacity !== undefined) {
