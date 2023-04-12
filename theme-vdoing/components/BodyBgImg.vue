@@ -1,7 +1,7 @@
 <template>
   <div
     class="body-bg"
-    :style="`background: url(${bgImg}) rgba(0,0,0,0.1) center center / cover no-repeat;opacity:${opacity}`"
+    :style="`background: url('https://cdn.jsdelivr.net/gh/Underglaze-Blue/git-img@main/2023-04-12/3%20(1)-1829-1830.png') rgba(0,0,0,0.1) center center / cover no-repeat;opacity:${opacity}`"
   ></div>
 </template>
 
@@ -18,20 +18,18 @@ export default {
   mounted () {
     let { bodyBgImg, bodyBgImgOpacity, bing } = this.$themeConfig
 
-    let i = 1
-    const now = dayjs()
-
-    while (bodyBgImg.length < 10) {
-      const temp = now.subtract(i, "day").format('YYYY/MM/DD')
-      i++
-      bodyBgImg.push(`${bing.url}${temp}/${bing.size}.jpg`)
-    }
-
-    bodyBgImg.push('/bg/xiangrikui.jpg') // 添加向日葵图
-
     if (type(bodyBgImg) === 'string') {
       this.bgImg = bodyBgImg
+      console.log(this.bgImg)
     } else if (type(bodyBgImg) === 'array') {
+      bodyBgImg.push('/bg/xiangrikui.jpg') // 添加向日葵图
+      let i = 1
+      const now = dayjs()
+      while (bodyBgImg.length < 10 ) {
+        const temp = now.subtract(i, "day").format('YYYY/MM/DD')
+        i++
+        bodyBgImg.push(`${bing.url}${temp}/${bing.size}.jpg`)
+      }
       let count = 0
       let timer = null
 

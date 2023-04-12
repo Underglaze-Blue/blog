@@ -25,10 +25,11 @@ module.exports = {
     url: 'https://bing.creepersan.com/bing-image/',
     size: '1920x1080'
   },
-  bodyBgImg: [
-    'https://bing.creepersan.com/api/v1/img-current'
-    // 'https://bing.creepersan.com/bing-image/2021/02/19/1920x1200.jpg'
-  ], // body背景大图，默认无。 单张图片 String || 多张图片 Array, 多张图片时每隔15秒换一张。
+  bodyBgImg: 'https://cdn.jsdelivr.net/gh/Underglaze-Blue/git-img@main/2023-04-12/3%20(1)-1829-1830.png',
+  // bodyBgImg: [
+  //   'https://bing.creepersan.com/api/v1/img-current'
+  //   // 'https://bing.creepersan.com/bing-image/2021/02/19/1920x1200.jpg'
+  // ], // body背景大图，默认无。 单张图片 String || 多张图片 Array, 多张图片时每隔15秒换一张。
   bodyBgImgOpacity: 0.8, // body背景图透明度，选值 0 ~ 1.0, 默认0.5
 
   // titleBadge: false, // 文章标题前的图标是否显示，默认true
@@ -50,14 +51,14 @@ module.exports = {
 
   author: {
     // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, link: String}
-    name: 'Himawari', // 必需
+    name: '江月何年初照人', // 必需
     link: 'https://github.com/Underglaze-Blue', // 可选的
   },
   blogger: {
     // 博主信息，显示在首页侧边栏
     avatar: '/avatar.png',
-    name: 'Himawari',
-    slogan: 'Lighting the way',
+    name: '江月何年初照人',
+    slogan: '',
   },
   social: {
     // 社交图标，显示于博主信息栏和页脚栏

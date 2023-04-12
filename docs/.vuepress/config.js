@@ -17,7 +17,7 @@ module.exports = {
   base: '/blog/',
   theme: require.resolve('../../theme-vdoing'),
   dest: 'dist',
-  title: 'Blog',
+  title: '-.-',
   description: 'Lighting the way',
   head: [
     ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }],
