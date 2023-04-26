@@ -19,7 +19,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Deploy
+      - name: Install
         env: # 设置环境变量
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
-        run: npm install && npm run actions # 执行的命令
+        run: npm install -g yarn
+      - name: Deploy
+        run: yarn && yarn actions # 执行的命令
